@@ -1,0 +1,15 @@
+//= require owl.carousel/dist/assets/owl.carousel.min
+//= require magnific-popup/dist/magnific-popup
+
+@charset "utf-8";
+@import "normalize";
+
+@import 'globals/index';
+@import "bootstrap-sprockets";
+@import 'bootstrap';
+@import "font-awesome";
+
+@import 'modules/index';
+
+@import 'base';
+@import 'layout';

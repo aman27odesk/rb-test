@@ -1,0 +1,75 @@
+@mixin triangle {
+  position: relative;
+  text-align: center;
+
+  &:after {
+    content: "\f078";
+    font: 2rem/1 'fontawesome';
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    margin-left: -10px;
+    color: $blue-text;
+  }
+}
+
+@mixin breakpoint($min: 0, $max: 0) {
+  $type: type-of($min);
+
+  @if $type == string {
+    @if $min == xs {
+      @media (max-width: ($screen-sm - 1)) { @content; }       // Mobile Devices
+    }
+
+    @else if $min == sm {
+      @media (min-width: $screen-sm) { @content; }       // Tablet Devices
+    }
+
+    @else if $min == md {
+      @media (min-width: $screen-md) { @content; }       // Desktops
+    }
+
+    @else if $min == lg {
+      @media (min-width: $screen-lg) { @content; }      // Widescreen Desktops
+    }
+
+    // Otherwise pass a warning to the compiler as to the appropriate options
+    @else {
+      @warn "The breakpoint mixin supports the following attributes: xs, sm, md, lg";
+    }
+  }
+  @else if $type == number {
+    // Allow for custom parameters for min and max size
+    $query: "all" !default;
+    @if      $min != 0 and $max != 0 { $query: "(min-width: #{$min}) and (max-width: #{$max})"; } // set both min and max
+    @else if $min != 0 and $max == 0 { $query: "(min-width: #{$min})"; } // set just min
+    @else if $min == 0 and $max != 0 { $query: "(max-width: #{$max})"; } // set just max
+    @media #{$query} { @content; }
+  }
+}
+
+@mixin plain-link($color: #ffffff) {
+  &:hover,
+  &:focus {
+    color: $color;
+    text-decoration: none;
+  }
+}
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin fa-btn($side: 'left', $space: 0.7rem) {
+  i {
+    display: inline-block;
+
+    @if $side == left {
+      margin-right: $space;
+    }
+    @else if $side == right {
+      margin-left: $space;
+    }
+  }
+}

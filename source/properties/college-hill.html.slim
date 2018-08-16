@@ -1,0 +1,24 @@
+---
+title: Lafayette Street & West Fairfield Ave, Easton, PA 18042
+page_class: properties_details
+changefreq: weekly
+priority: 0.8
+---
+
+- property = find_property_by_url('college-hill')
+
+section.big-background.lafayette-fairfield(data-ng-controller='PropertiesShowCtrl as vm')
+  = partial 'partials/properties/details', locals: {property: property}
+
+.container
+  .row
+    .col-md-8
+
+      = partial 'partials/properties/desc', locals: {property: property}
+      = partial 'partials/properties/info', locals: {property: property}
+      = partial 'partials/properties/spaces', locals: {property: property}
+      = partial 'partials/properties/photos', locals: {property: property}
+
+    .col-md-4
+      = partial 'partials/properties/videos', locals: {property: property}
+      = partial 'layouts/partials/contact_form'

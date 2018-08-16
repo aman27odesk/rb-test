@@ -1,0 +1,12 @@
+- if property&.photos&.any?
+
+  section.section
+    .inner
+      h2.section__title
+        = image_tag 'camera.svg'
+        span Photo Gallery
+
+      .owl-carousel.owl-theme
+        - property.photos.each do |photo|
+          a.test-popup-link(href="#{photo.url}?w=800")
+            img(src="#{photo.url}?w=400" alt="#{photo.title}")

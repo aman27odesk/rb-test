@@ -1,0 +1,64 @@
+---
+title: Commercial Real Estate Developers in Lehigh Valley, PA
+changefreq: weekly
+priority: 1.0
+---
+
+- homepage = data.site.homepage.first[1]
+
+.billboard
+  .mask
+  #bgndVideo.player data-property="{videoURL:'https://youtu.be/G7BwRKsklTQ', containment:'.billboard', showYTLogo: false, showControls: false, autoPlay:true, mute:true, opacity:1}"
+  p.billboard-title= homepage['headline']
+  h1.billboard-subtitle= homepage['subHeadline']
+
+  .billboard__ctas
+    a.billboard-cta.btn.btn-primary(href='/contact/') Contact Us
+    a.billboard-cta.btn.btn-primary-alt(href='/properties/') View Properties
+
+section.section.section--clients
+  .container
+    ul.clientBlocks
+      li.clientBlock
+        = image_tag 'clients/beautyblender-logo.png'
+      li.clientBlock
+        = image_tag 'clients/easton-hospital-logo.png'
+      li.clientBlock
+        = image_tag 'clients/gymtime-logo.png'
+      li.clientBlock
+        = image_tag 'clients/tierpoint-logo.png'
+
+section.section.home-showcase
+  .container
+    h2.section__title Welcome
+    .home-showcase__content
+      .inner= homepage['welcomeText']
+
+section.section.gray.section--process
+  .container
+    h2.section__title Our Flexfit™ Process
+    p.section__lead= homepage['processText']
+
+    ul.processSteps
+      - homepage['processSteps'].each.with_index(1) do |step, idx|
+        li.processStep
+          .number
+            .processStep__number= idx
+          .inner
+            h4.processStep__title= step['name']
+            .processStep__description= step['value']
+section.section
+  .container
+    h2.section__title Featured Properties
+
+    .featured-properties
+      .row
+        - homepage.featuredProperties.each do |p|
+          .col-sm-12.col-md-3
+            a.featured-property(href="#{config[:host]}/properties/#{p.url}")
+              = image_tag "#{p.backgroundImage.url}?w=700"
+              .inner
+                h3.featured-property-title= p.name
+
+      .otherActions
+        = link_to 'View All Properties', '/properties.html', class: 'more'

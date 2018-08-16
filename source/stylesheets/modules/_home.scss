@@ -1,0 +1,229 @@
+// Billboard
+
+.billboard {
+  position: relative;
+  padding: 7rem 1.25rem;
+  background: url(https://rb-associates.imgix.net/courtney-3.jpg?w=1920) center center no-repeat;
+  background-size: 100% 100%;
+  text-transform: uppercase;
+  text-align: center;
+
+  br {
+    display: none;
+  }
+
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: fade-out(#000, 0.6);
+    z-index: 1;
+  }
+
+  @include breakpoint(md) {
+    padding: 20rem 12rem;
+
+    br {
+      display: block;
+    }
+  }
+
+  .billboard-title {
+    z-index: 2;
+    position: relative;
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 1px 0 fade-out(#000000, 0.2);
+
+    @include breakpoint(md) {
+      font-size: 5rem;
+    }
+  }
+
+  .billboard-subtitle {
+    z-index: 1;
+    position: relative;
+    margin-top: 1rem;
+    font-size: 2rem;
+    line-height: 1.25;
+    color: #ffffff;
+    text-shadow: 0 1px 0 fade-out(#000000, 0.2);
+
+    @include breakpoint(md) {
+      margin-top: 1.5rem;
+      font-size: 2.25rem;
+    }
+  }
+
+  .billboard__ctas {
+    margin: 2.25rem 0 0;
+
+    @include breakpoint(md) {
+      margin-top: 3rem;
+    }
+  }
+
+  .billboard-cta {
+    z-index: 1;
+    position: relative;
+    padding: 1.125rem 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    @include breakpoint(sm) {
+      margin-right: 2rem;
+    }
+  }
+}
+
+.featured-property {
+  position: relative;
+  display: block;
+  margin-bottom: 2rem;
+  border: 1px solid darken($section-gray-bg, 5%);
+  @include plain-link($gray-dark);
+
+  img {
+    width: 100%;
+
+    @include breakpoint(md) {
+      max-height: 19.75rem;
+    }
+  }
+
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: #ffffff;
+
+    @include breakpoint(md) {
+      padding: 1rem;
+    }
+  }
+}
+
+.home-showcase__content {
+  text-align: center;
+
+  .inner {
+    @include breakpoint(md) {
+      padding: 0 20rem;
+      margin: 0 auto;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.featured-property-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  color: $gray-dark;
+  text-transform: uppercase;
+
+  @include breakpoint(md) {
+    font-size: 1.6rem;
+  }
+}
+
+.clientBlocks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+  }
+}
+
+.clientBlock {
+  width: 50%;
+  margin: 0;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint(md) {
+    width: 25%;
+  }
+
+  img {
+    height: 3rem;
+
+    @include breakpoint(md) {
+      height: auto;
+      width: 73%;
+      max-width: 73%;
+    }
+  }
+}
+
+.processSteps {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+  @include breakpoint(md) {
+    padding: 0 20rem;
+  }
+}
+
+.processStep {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(md) {
+    display: flex;
+    text-align: left;
+  }
+
+  .inner {
+    @include breakpoint(md) {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.processStep__number {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 0 1rem;
+  line-height: 3.5rem;
+  font-size: 1.75rem;
+  text-align: center;
+  color: #ffffff;
+  background: $blue-text;
+  border-radius: 50%;
+}
+
+.processStep__title {
+  padding: 0;
+  margin: 0 0 0.25rem;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+}
+
+.featured-properties {
+  .otherActions {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

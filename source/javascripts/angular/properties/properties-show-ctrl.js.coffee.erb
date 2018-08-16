@@ -1,0 +1,44 @@
+do ->
+  'use strict'
+
+  PropertiesShowCtrl = ->
+    ctrl = @
+
+    ctrl.map =
+      center:
+        latitude: 40.7059511
+        longitude: -75.3028006
+      zoom: 15
+      markers: []
+      markersEvents:
+        click: (marker, eventName, model, args) ->
+          ctrl.map.window.model = model
+          ctrl.map.window.show = true
+      window:
+        marker: {}
+        show: false
+        closeClick: ->
+          @show = false
+        options: {
+          pixelOffset: new google.maps.Size(0, -35, 'px', 'px')
+        }
+
+    ctrl.setProperty = (url) ->
+      fetchedProperties = window.propertyPages
+      return unless currentProperty = _.find(fetchedProperties, url: url)
+
+      ctrl.map.center.latitude  = currentProperty.coordinates.lat
+      ctrl.map.center.longitude = currentProperty.coordinates.lon
+
+      ctrl.map.markers = [
+        id: currentProperty.id
+        coords:
+          latitude: currentProperty.coordinates.lat
+          longitude: currentProperty.coordinates.lon
+      ]
+
+    return
+
+  angular
+    .module('app')
+    .controller('PropertiesShowCtrl', PropertiesShowCtrl)

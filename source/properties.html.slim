@@ -1,0 +1,44 @@
+---
+  title: Properties
+  hide_footer: true
+  changefreq: weekly
+  priority: 0.7
+---
+
+.properties__container(data-ng-controller='PropertiesIndexCtrl as vm')
+  .properties__list
+    h1.properties__title Our Properties
+    ul.property-cards
+      - property_pages.each do |property|
+        li.property-card
+          .property-card__img
+            span.label.label-default= property.ownershipType
+            - if property.backgroundImage
+              a(href="/properties/#{property.url}/" title='View Property')
+                = image_tag "#{property.backgroundImage.url}?w=500"
+          .property-card__details
+            .nap
+              .label-wrap
+                span.label.label-default= property.ownershipType
+              h2.property-card__title
+                = link_to property.name, "/properties/#{property.url}/", title: 'View Property'
+              address.property-card__address
+                span= property.address
+                span,
+                span<= property.city
+                span,
+                span<= property.state.upcase
+                span<= property.zipCode
+            a.btn.btn-default.property-card__btn(href="/properties/#{property.url}/" title='View Property')
+              | Details
+              i.fa.fa-angle-right
+  .properties__map(ng-cloak='')
+    ui-gmap-google-map(center='vm.map.center' zoom='vm.map.zoom')
+      ui-gmap-window(show='vm.map.window.show' coords='vm.map.window.model.coords' options='vm.map.window.options')
+        .inner
+          h3.map__title
+            a(ng-href='/properties/{{vm.map.window.model.url}}/')
+              | {{ vm.map.window.model.name }}
+          address.property-card__address
+            | {{ vm.map.window.model.address }}
+      ui-gmap-markers(models='vm.map.markers' coords="'coords'" events='vm.map.markersEvents')
