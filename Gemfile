@@ -32,4 +32,5 @@ gem 'builder'
 gem 'middleman-google-analytics', '~> 3.0'
 
 # Assets
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
+gem 'owlcarousel-rails'
