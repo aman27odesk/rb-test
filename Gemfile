@@ -22,7 +22,7 @@ gem 'middleman'
 gem 'middleman-sprockets'
 #gem 'sprockets', '~> 4.0'
 #gem 'middleman-livereload'
-#gem 'middleman-slim', require: false
+gem 'middleman-slim', require: false
 #gem 'middleman-autoprefixer'
 #gem 'font-awesome-middleman'
 gem 'contentful_middleman' 
@@ -31,7 +31,7 @@ gem 'contentful_middleman'
 gem 'builder'
 
 # Google Analytics
-#gem 'middleman-google-analytics', '~> 3.0'
+gem 'middleman-google-analytics'
 
 # Assets
 #gem 'bootstrap-sass', '~> 3.3.6'
