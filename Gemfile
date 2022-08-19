@@ -19,7 +19,7 @@ end
 # Middleman Gems
 gem 'middleman'
 #, '>= 4.0.0'
-#gem 'middleman-sprockets'
+gem 'middleman-sprockets'
 #gem 'sprockets', '~> 4.0'
 gem 'middleman-livereload'
 gem 'middleman-slim', require: false
