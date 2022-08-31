@@ -29,7 +29,7 @@ gem 'contentful_middleman'
 gem 'builder'
 
 # Google Analytics
-#gem 'middleman-google-analytics'
+gem 'middleman-google-analytics', '~> 3.0'
 
 # Assets
 gem 'bootstrap-sass', '~> 3.3.6'
