@@ -39,26 +39,10 @@ section.section.gray.section--process
     h2.section__title Our Flexfit™ Process
     p.section__lead= homepage['processText']
 
-    ul.processSteps
-      - homepage['processSteps'].each.with_index(1) do |step, idx|
-        li.processStep
-          .number
-            .processStep__number= idx
-          .inner
-            h4.processStep__title= step['name']
-            .processStep__description= step['value']
 section.section
   .container
     h2.section__title Featured Properties
 
-    .featured-properties
-      .row
-        - homepage.featuredProperties.each do |p|
-          .col-sm-12.col-md-3
-            a.featured-property(href="#{config[:host]}/properties/#{p.url}")
-              = image_tag "#{p.backgroundImage.url}?w=700"
-              .inner
-                h3.featured-property-title= p.name
 
       .otherActions
         = link_to 'View All Properties', '/properties.html', class: 'more'
