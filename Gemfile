@@ -23,8 +23,7 @@ gem 'middleman-livereload'
 gem 'middleman-slim', require: false
 gem 'middleman-autoprefixer'
 gem 'font-awesome-middleman'
-gem 'contentful_middleman' 
-#, :github => 'contentful/contentful_middleman', :branch => 'dl/upgrade-to-v4'
+gem 'contentful_middleman' , :github => 'contentful/contentful_middleman', :branch => 'dl/upgrade-to-v4'
 gem 'slim', '~> 3.0.7'
 
 gem 'builder'
